@@ -56,9 +56,9 @@ export class AppComponent implements OnInit {
     'Step Before'
   ];  
 
-  draggingEnabled: boolean = true;
-  panningEnabled: boolean = true;
-  zoomEnabled: boolean = true;
+  draggingEnabled: boolean = false;
+  panningEnabled: boolean = false;
+  zoomEnabled: boolean = false;
 
   zoomSpeed: number = 0.1;
   minZoomLevel: number = 0.1;

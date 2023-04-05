@@ -77,6 +77,7 @@
         <ng-template #clusterTemplate let-cluster>
           <svg:g class="node cluster">
             <svg:rect rx="5" ry="5" [attr.width]="cluster.dimension.width" [attr.height]="cluster.dimension.height" [attr.fill]="cluster.data.color" />
+            <svg:text alignment-baseline="hanging" [attr.x]="10" [attr.y]="10">{{cluster.label}}</svg:text>
           </svg:g>
         </ng-template>
 
