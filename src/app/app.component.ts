@@ -71,7 +71,7 @@ export class AppComponent implements OnInit {
   ];  
 
   draggingEnabled: boolean = false;
-  panningEnabled: boolean = false;
+  panningEnabled: boolean = true;
   zoomEnabled: boolean = true;
 
   zoomSpeed: number = 0.1;

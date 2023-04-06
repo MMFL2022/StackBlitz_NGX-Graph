@@ -79,6 +79,9 @@ export const nodes: Node[] = [
   }, {
     id: 'db5',
     label: 'averageAmperage:0'
+  }, {
+    id: 'h1',
+    label: 'h1'
   },
 ];
 
@@ -102,23 +105,29 @@ export const clusters: ClusterNode[] = [
   },
   {
     id: 'ePTrace1',
-    label: 'Element Penetration Trace',
+    label: 'Penetration',
     childNodeIds: ['i1.1', 'i4.1', 'i2', 'i3']
   }, {
     id: 'eTTrace1',
-    label: 'Element Treatment Trace',
+    label: 'Treatment',
     childNodeIds: ['i1.2', 'i4.2']
   },
   {
-    id: 'ePIn',
-    label: 'Element Data',
+    id: 'eTrace',
+    label: 'Trace',
     childNodeIds: ['eTTrace1', 'ePTrace1']
   },
   {
-    id: 'ePOut',
-    label: 'Parameters Out',
-    childNodeIds: [ 'db3']
-  }, {
+    id: 'eHeader',
+    label: 'Header',
+    childNodeIds:['h1']
+  },
+  {
+    id: 'element',
+    label: 'Element',
+    childNodeIds: ['eTrace', 'eHeader']
+  },
+  {
     id: 'C5',
     label: 'Average : Amperage',
     childNodeIds:[ 'iC5.1', 'iC5.2', 'oC5']
