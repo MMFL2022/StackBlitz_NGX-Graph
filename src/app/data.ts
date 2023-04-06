@@ -3,10 +3,10 @@ import { Edge, Node, ClusterNode } from '@swimlane/ngx-graph';
 export const nodes: Node[] = [
   {
     id: 'i1.1',
-    label: 'i1.1'
+    label: 'depth:0'
   }, {
     id: 'i1.2',
-    label: 'i1.2'
+    label: 'depth:0'
   }, {
     id: 'i2',
     label: 'i2'
@@ -42,29 +42,67 @@ export const nodes: Node[] = [
     label: 'i3'
   }, {
     id: 'db1',
-    label: 'db1'
+    label: 'maximumDepth:0'
   }, {
     id: 'db2',
-    label: 'db2'
+    label: 'placedLength:0'
   }, {
     id: 'db3',
     label: 'db3'
-  }
+  }, {
+    id: 'iC4.1',
+    label: 'iC4.1'
+  }, {
+    id: 'iC4.2',
+    label: 'iC4.2'
+  }, {
+    id: 'oC4',
+    label: 'oC4'
+  }, {
+    id: 'i4.1',
+    label: 'i4.1'
+  }, {
+    id: 'i4.2',
+    label: 'i4.2'
+  }, {
+    id: 'db4',
+    label: 'minimumDepth:0'
+  },
 ];
 
 export const clusters: ClusterNode[] = [
   {
     id: 'C1',
-    label: 'Max Depth',
+    label: 'Maximum',
     childNodeIds: ['iC1.1', 'iC1.2', 'oC1']
   }, {
+    id: 'C4',
+    label: 'Minimum',
+    childNodeIds: ['iC4.1', 'iC4.2', 'oC4']
+  }, {
     id: 'C2',
-    label: 'C2',
+    label: 'SubtractAcross',
     childNodeIds: ['iC2.1', 'iC2.2', 'oC2']
   }, {
     id: 'C3',
     label: 'C3',
     childNodeIds: ['iC3.1', 'iC3.2', 'oC3']
+  }, {
+    id: 'eTTrace1',
+    label: 'Element Treatment Trace',
+    childNodeIds: ['i1.1', 'i4.1', 'i2']
+  }, {
+    id: 'ePTrace1',
+    label: 'Element Penetration Trace',
+    childNodeIds: ['i1.2', 'i4.2']
+  }, {
+    id: 'ePIn',
+    label: 'Parameters In',
+    childNodeIds: ['eTTrace1', 'ePTrace1']
+  }, {
+    id: 'ePOut',
+    label: 'Parameters Out',
+    childNodeIds: ['db1', 'db2', 'db3', 'db4']
   }
 ]
 
@@ -76,14 +114,14 @@ export const links: Edge[] = [
     label: 'Max Depth'
   }, {
     id: 'b',
-    source: 'i2',
+    source: 'oC4',
     target: 'iC2.2',
-    label: 'input 2'
+    label: 'Min Depth'
   }, {
     id: 'c',
     source: 'oC2',
     target: 'iC3.1',
-    label: 'custom label'
+    label: 'maximumDepth:0'
   }, {
     id: 'd',
     source: 'i3',
@@ -98,7 +136,7 @@ export const links: Edge[] = [
     id:'f',
     source:'oC2',
     target: 'db2',
-    label: 'Value X'
+    label: 'maximumDepth:0'
   }, {
     id:'g',
     source: 'oC3',
@@ -114,5 +152,20 @@ export const links: Edge[] = [
     source:'i1.2',
     target:'iC1.2',
     label: 'Treatment Depth'
-  }
+  }, {
+    id:'j',
+    source:'i1.1',
+    target:'iC4.1',
+    label: 'Penetration Depth'
+  }, {
+    id:'k',
+    source:'i1.2',
+    target:'iC4.2',
+    label: 'Treatment Depth'
+  }, {
+    id: 'l',
+    source: 'oC4',
+    target: 'db4',
+    label: 'Min Depth'
+  },
 ];
