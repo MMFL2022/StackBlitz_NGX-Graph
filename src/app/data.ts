@@ -9,7 +9,7 @@ export const nodes: Node[] = [
     label: 'depth:0'
   }, {
     id: 'i2',
-    label: 'i2'
+    label: 'timeStamp:0'
   }, {
     id: 'iC1.1',
     label: 'iC1.1'
@@ -60,49 +60,68 @@ export const nodes: Node[] = [
     label: 'oC4'
   }, {
     id: 'i4.1',
-    label: 'i4.1'
+    label: 'amperage:0'
   }, {
     id: 'i4.2',
-    label: 'i4.2'
+    label: 'amperage:0'
   }, {
     id: 'db4',
     label: 'minimumDepth:0'
+  }, {
+    id: 'iC5.1',
+    label: 'iC5.1'
+  }, {
+    id: 'iC5.2',
+    label: 'iC5.2'
+  }, {
+    id: 'oC5',
+    label: 'oC5'
+  }, {
+    id: 'db5',
+    label: 'averageAmperage:0'
   },
 ];
 
 export const clusters: ClusterNode[] = [
   {
     id: 'C1',
-    label: 'Maximum',
+    label: 'Maximum : maximumDepth',
     childNodeIds: ['iC1.1', 'iC1.2', 'oC1']
   }, {
     id: 'C4',
-    label: 'Minimum',
+    label: 'Minimum : minimumDepth',
     childNodeIds: ['iC4.1', 'iC4.2', 'oC4']
   }, {
     id: 'C2',
-    label: 'SubtractAcross',
+    label: 'SubtractAcross : treatmentLength',
     childNodeIds: ['iC2.1', 'iC2.2', 'oC2']
   }, {
     id: 'C3',
     label: 'C3',
     childNodeIds: ['iC3.1', 'iC3.2', 'oC3']
+  },
+  {
+    id: 'ePTrace1',
+    label: 'Element Penetration Trace',
+    childNodeIds: ['i1.1', 'i4.1', 'i2', 'i3']
   }, {
     id: 'eTTrace1',
     label: 'Element Treatment Trace',
-    childNodeIds: ['i1.1', 'i4.1', 'i2']
-  }, {
-    id: 'ePTrace1',
-    label: 'Element Penetration Trace',
     childNodeIds: ['i1.2', 'i4.2']
-  }, {
+  },
+  {
     id: 'ePIn',
-    label: 'Parameters In',
+    label: 'Element Data',
     childNodeIds: ['eTTrace1', 'ePTrace1']
-  }, {
+  },
+  {
     id: 'ePOut',
     label: 'Parameters Out',
-    childNodeIds: ['db1', 'db2', 'db3', 'db4']
+    childNodeIds: [ 'db3']
+  }, {
+    id: 'C5',
+    label: 'Average : Amperage',
+    childNodeIds:[ 'iC5.1', 'iC5.2', 'oC5']
   }
 ]
 
@@ -110,16 +129,16 @@ export const links: Edge[] = [
   {
     id: 'a',
     source: 'oC1',
-    target: 'iC2.1',
+    target: 'db1',
     label: 'Max Depth'
   }, {
     id: 'b',
-    source: 'oC4',
+    source: 'db4',
     target: 'iC2.2',
     label: 'Min Depth'
   }, {
     id: 'c',
-    source: 'oC2',
+    source: 'db2',
     target: 'iC3.1',
     label: 'maximumDepth:0'
   }, {
@@ -129,8 +148,8 @@ export const links: Edge[] = [
     label: 'custom label'
   }, {
     id:'e',
-    source: 'oC1',
-    target: 'db1',
+    source: 'db1',
+    target: 'iC2.1',
     label: 'Max Depth'
   }, {
     id:'f',
@@ -167,5 +186,20 @@ export const links: Edge[] = [
     source: 'oC4',
     target: 'db4',
     label: 'Min Depth'
+  }, {
+    id: 'm',
+    source: 'i4.1',
+    target: 'iC5.1',
+    label: 'Min Depth'
+  }, {
+    id: 'n',
+    source: 'i4.2',
+    target: 'iC5.2',
+    label: 'Min Depth'
+  }, {
+    id: 'o',
+    source: 'oC5',
+    target: 'db5',
+    label: 'Average Amperage'
   },
 ];
