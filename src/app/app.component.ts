@@ -18,6 +18,20 @@ export class AppComponent implements OnInit {
   links: Edge[] = links;
   
   layout: String | Layout = 'dagreCluster';
+  layoutSettings = {
+    orientation: 'TB',
+    marginX: 20,
+    marginY: 20,
+    edgePadding: 10,
+    rankPadding: 100,
+    nodePadding: 20,
+    curveDistance: 20,
+    //align: Alignmnet,
+    //acyclicer: 'greedy',
+    // ranker: 'network-simplex' | 'tight-tree' | 'longest-path',
+    // multigraph: false,
+    //compound: false,
+  };
   layouts: any[] = [
     {
       label: 'Dagre',
@@ -58,7 +72,7 @@ export class AppComponent implements OnInit {
 
   draggingEnabled: boolean = false;
   panningEnabled: boolean = false;
-  zoomEnabled: boolean = false;
+  zoomEnabled: boolean = true;
 
   zoomSpeed: number = 0.1;
   minZoomLevel: number = 0.1;
