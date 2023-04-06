@@ -149,7 +149,7 @@ export const links: Edge[] = [
     id: 'c',
     source: 'db2',
     target: 'iC3.1',
-    label: 'maximumDepth:0'
+    label: 'Placed Length'
   }, {
     id: 'd',
     source: 'i3',
@@ -164,7 +164,7 @@ export const links: Edge[] = [
     id:'f',
     source:'oC2',
     target: 'db2',
-    label: 'maximumDepth:0'
+    label: 'Placed Length'
   }, {
     id:'g',
     source: 'oC3',
