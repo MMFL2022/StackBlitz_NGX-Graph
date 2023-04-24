@@ -1,5 +1,5 @@
 <mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened class="sidebar">
+  <mat-drawer #settings mode="over" class="sidebar">
     <h2>Configuration</h2>
     <form class="settings">
       <mat-form-field>
@@ -48,6 +48,9 @@
   
   <mat-drawer-content>
     <div class="page">
+      <div>
+        <button mat-button (click)="settings.toggle()">Settings</button>
+      </div>
       <ngx-graph
         [links]="links"
         [nodes]="nodes"
