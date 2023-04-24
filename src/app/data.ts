@@ -2,213 +2,213 @@ import { Edge, Node, ClusterNode } from '@swimlane/ngx-graph';
 
 export const nodes: Node[] = [
   {
-    id: 'i1.1',
+    id: 'n1',
     label: 'depth:0'
   }, {
-    id: 'i1.2',
+    id: 'n2',
     label: 'depth:0'
   }, {
-    id: 'i2',
+    id: 'n3',
     label: 'timeStamp:0'
   }, {
-    id: 'iC1.1',
+    id: 'n4',
     label: 'iC1.1'
   }, {
-    id: 'iC1.2',
+    id: 'n5',
     label: 'iC1.2'
   }, {
-    id: 'oC1',
+    id: 'n6',
     label: 'oC1'
   }, {
-    id: 'iC2.1',
+    id: 'n7',
     label: 'iC2.1'
   }, {
-    id: 'iC2.2',
+    id: 'n8',
     label: 'iC2.2'
   }, {
-    id: 'oC2',
+    id: 'n9',
     label: 'oC2'
   }, {
-    id: 'iC3.1',
+    id: 'n10',
     label: 'iC3.1'
   }, {
-    id: 'iC3.2',
+    id: 'n11',
     label: 'iC3.2'
   }, {
-    id: 'oC3',
+    id: 'n12',
     label: 'oC3'
   }, {
-    id: 'i3',
+    id: 'n13',
     label: 'i3'
   }, {
-    id: 'db1',
+    id: 'n14',
     label: 'maximumDepth:0'
   }, {
-    id: 'db2',
+    id: 'n15',
     label: 'placedLength:0'
   }, {
-    id: 'db3',
+    id: 'n16',
     label: 'db3'
   }, {
-    id: 'iC4.1',
+    id: 'n17',
     label: 'iC4.1'
   }, {
-    id: 'iC4.2',
+    id: 'n18',
     label: 'iC4.2'
   }, {
-    id: 'oC4',
+    id: 'n19',
     label: 'oC4'
   }, {
-    id: 'i4.1',
+    id: 'n20',
     label: 'amperage:0'
   }, {
-    id: 'i4.2',
+    id: 'n21',
     label: 'amperage:0'
   }, {
-    id: 'db4',
+    id: 'n22',
     label: 'minimumDepth:0'
   }, {
-    id: 'iC5.1',
+    id: 'n23',
     label: 'iC5.1'
   }, {
-    id: 'iC5.2',
+    id: 'n24',
     label: 'iC5.2'
   }, {
-    id: 'oC5',
+    id: 'n25',
     label: 'oC5'
   }, {
-    id: 'db5',
+    id: 'n26',
     label: 'averageAmperage:0'
   }, {
-    id: 'h1',
+    id: 'n27',
     label: 'h1'
   },
 ];
 
 export const clusters: ClusterNode[] = [
   {
-    id: 'C1',
+    id: 'cn1',
     label: 'Maximum : maximumDepth',
-    childNodeIds: ['iC1.1', 'iC1.2', 'oC1']
+    childNodeIds: ['n4', 'n5', 'n6']
   }, {
-    id: 'C4',
+    id: 'cn2',
     label: 'Minimum : minimumDepth',
-    childNodeIds: ['iC4.1', 'iC4.2', 'oC4']
+    childNodeIds: ['n17', 'n18', 'n19']
   }, {
-    id: 'C2',
+    id: 'cn3',
     label: 'SubtractAcross : treatmentLength',
-    childNodeIds: ['iC2.1', 'iC2.2', 'oC2']
+    childNodeIds: ['n7', 'n8', 'n9']
   }, {
-    id: 'C3',
+    id: 'cn4',
     label: 'C3',
-    childNodeIds: ['iC3.1', 'iC3.2', 'oC3']
+    childNodeIds: ['n10', 'n11', 'n12']
   },
   {
-    id: 'ePTrace1',
+    id: 'cn5',
     label: 'Penetration',
-    childNodeIds: ['i1.1', 'i4.1', 'i2', 'i3']
+    childNodeIds: ['n1', 'n20', 'n3', 'n13']
   }, {
-    id: 'eTTrace1',
+    id: 'cn6',
     label: 'Treatment',
-    childNodeIds: ['i1.2', 'i4.2']
+    childNodeIds: ['n2', 'n21']
   },
   {
-    id: 'eTrace',
+    id: 'cn7',
     label: 'Trace',
-    childNodeIds: ['eTTrace1', 'ePTrace1']
+    childNodeIds: ['cn6', 'cn5']
   },
   {
-    id: 'eHeader',
+    id: 'cn8',
     label: 'Header',
-    childNodeIds:['h1']
+    childNodeIds:['n27']
   },
   {
-    id: 'element',
+    id: 'cn9',
     label: 'Element',
-    childNodeIds: ['eTrace', 'eHeader']
+    childNodeIds: ['cn7', 'cn8']
   },
   {
-    id: 'C5',
+    id: 'cn10',
     label: 'Average : Amperage',
-    childNodeIds:[ 'iC5.1', 'iC5.2', 'oC5']
+    childNodeIds:[ 'n23', 'n24', 'n25']
   }
 ]
 
 export const links: Edge[] = [
   {
-    id: 'a',
-    source: 'oC1',
-    target: 'db1',
+    id: 'e1',
+    source: 'n6',
+    target: 'n14',
     label: 'Max Depth'
   }, {
-    id: 'b',
-    source: 'db4',
-    target: 'iC2.2',
+    id: 'e2',
+    source: 'n22',
+    target: 'n8',
     label: 'Min Depth'
   }, {
-    id: 'c',
-    source: 'db2',
-    target: 'iC3.1',
+    id: 'e3',
+    source: 'n15',
+    target: 'n10',
     label: 'Placed Length'
   }, {
-    id: 'd',
-    source: 'i3',
-    target: 'iC3.2',
+    id: 'e4',
+    source: 'n13',
+    target: 'n11',
     label: 'custom label'
   }, {
-    id:'e',
-    source: 'db1',
-    target: 'iC2.1',
+    id: 'e5',
+    source: 'n14',
+    target: 'n7',
     label: 'Max Depth'
   }, {
-    id:'f',
-    source:'oC2',
-    target: 'db2',
+    id: 'e6',
+    source:'n9',
+    target: 'n15',
     label: 'Placed Length'
   }, {
-    id:'g',
-    source: 'oC3',
-    target: 'db3',
+    id: 'e7',
+    source: 'n12',
+    target: 'n16',
     label: 'Value Y'
   }, {
-    id:'h',
-    source:'i1.1',
-    target:'iC1.1',
+    id: 'e8',
+    source:'n1',
+    target:'n4',
     label: 'Penetration Depth'
   }, {
-    id:'i',
-    source:'i1.2',
-    target:'iC1.2',
+    id: 'e9',
+    source:'n2',
+    target:'n5',
     label: 'Treatment Depth'
   }, {
-    id:'j',
-    source:'i1.1',
-    target:'iC4.1',
+    id: 'e10',
+    source:'n1',
+    target:'n17',
     label: 'Penetration Depth'
   }, {
-    id:'k',
-    source:'i1.2',
-    target:'iC4.2',
+    id: 'e11',
+    source:'n2',
+    target:'n18',
     label: 'Treatment Depth'
   }, {
-    id: 'l',
-    source: 'oC4',
-    target: 'db4',
+    id: 'e12',
+    source: 'n19',
+    target: 'n22',
     label: 'Min Depth'
   }, {
-    id: 'm',
-    source: 'i4.1',
-    target: 'iC5.1',
+    id: 'e13',
+    source: 'n20',
+    target: 'n23',
     label: 'Min Depth'
   }, {
-    id: 'n',
-    source: 'i4.2',
-    target: 'iC5.2',
+    id: 'e14',
+    source: 'n21',
+    target: 'n24',
     label: 'Min Depth'
   }, {
-    id: 'o',
-    source: 'oC5',
-    target: 'db5',
+    id: 'e15',
+    source: 'n25',
+    target: 'n26',
     label: 'Average Amperage'
   },
 ];
