@@ -2,10 +2,10 @@ import { Edge, Node, ClusterNode } from '@swimlane/ngx-graph';
 
 export const nodes: Node[] = [
   {
-    id: 'n1',
+    id: 'eTP-depth-0',
     label: 'depth:0'
   }, {
-    id: 'n2',
+    id: 'eTT-depth-0',
     label: 'depth:0'
   }, {
     id: 'n3',
@@ -59,10 +59,10 @@ export const nodes: Node[] = [
     id: 'n19',
     label: 'oC4'
   }, {
-    id: 'n20',
+    id: 'eTP-amperage-0',
     label: 'amperage:0'
   }, {
-    id: 'n21',
+    id: 'eTT-amperage-0',
     label: 'amperage:0'
   }, {
     id: 'n22',
@@ -104,28 +104,28 @@ export const clusters: ClusterNode[] = [
     childNodeIds: ['n10', 'n11', 'n12']
   },
   {
-    id: 'cn5',
+    id: 'eTP',
     label: 'Penetration',
-    childNodeIds: ['n1', 'n20', 'n3', 'n13']
+    childNodeIds: ['eTP-depth-0', 'eTP-amperage-0', 'n3', 'n13']
   }, {
-    id: 'cn6',
+    id: 'eTT',
     label: 'Treatment',
-    childNodeIds: ['n2', 'n21']
+    childNodeIds: ['eTT-depth-0', 'eTT-amperage-0']
   },
   {
-    id: 'cn7',
+    id: 'eT',
     label: 'Trace',
-    childNodeIds: ['cn6', 'cn5']
+    childNodeIds: ['eTT', 'eTP']
   },
   {
-    id: 'cn8',
+    id: 'eH',
     label: 'Header',
     childNodeIds:['n27']
   },
   {
-    id: 'cn9',
+    id: 'element',
     label: 'Element',
-    childNodeIds: ['cn7', 'cn8']
+    childNodeIds: ['eT', 'eH']
   },
   {
     id: 'cn10',
@@ -172,22 +172,22 @@ export const links: Edge[] = [
     label: 'Value Y'
   }, {
     id: 'e8',
-    source:'n1',
+    source:'eTP-depth-0',
     target:'n4',
     label: 'Penetration Depth'
   }, {
     id: 'e9',
-    source:'n2',
+    source:'eTT-depth-0',
     target:'n5',
     label: 'Treatment Depth'
   }, {
     id: 'e10',
-    source:'n1',
+    source:'eTP-depth-0',
     target:'n17',
     label: 'Penetration Depth'
   }, {
     id: 'e11',
-    source:'n2',
+    source:'eTT-depth-0',
     target:'n18',
     label: 'Treatment Depth'
   }, {
@@ -197,12 +197,12 @@ export const links: Edge[] = [
     label: 'Min Depth'
   }, {
     id: 'e13',
-    source: 'n20',
+    source: 'eTP-amperage-0',
     target: 'n23',
     label: 'Min Depth'
   }, {
     id: 'e14',
-    source: 'n21',
+    source: 'eTT-amperage-0',
     target: 'n24',
     label: 'Min Depth'
   }, {
